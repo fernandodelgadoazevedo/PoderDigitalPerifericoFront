@@ -7,6 +7,7 @@ import Home from './paginas/home/Home'
 import Login from './paginas/login/Login'
 import SobreOProjeto from './paginas/SobreOProjeto/SobreOProjeto'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 
 function App() {  
   return (
@@ -18,8 +19,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/Sobre" element={<SobreOProjeto />} />
-        
+        <Route path="/sobre" element={<SobreOProjeto />} />
+        <Route path="/cadastrar" element={<CadastroUsuario />} />
       </Routes>
     </div>
     <Footer />
