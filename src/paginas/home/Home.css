@@ -1,0 +1,13 @@
+.titulo{
+    text-align: center;
+}
+
+.imagem{
+    size: 100vw;
+}
+
+body{
+    background-image: url(https://cdn.discordapp.com/attachments/1064895363846242365/1080870633929457714/6.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
