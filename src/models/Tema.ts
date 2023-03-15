@@ -1,6 +1,6 @@
 interface Tema{
     id: number;
-    temas: string;
+    tema: string;
 
 }
 

@@ -20,7 +20,6 @@ function DeletarTema() {
 
     useEffect(() => {
         if (token == "") {
-            //alert("Você precisa estar logado")
             toast.error('Você precisa estar logado',{
               position: 'top-right',
               autoClose: 2000,
@@ -57,7 +56,6 @@ function DeletarTema() {
                 'Authorization': token
               }
             });
-            //alert('Tema deletado com sucesso');
             toast.success('Tema deletado com sucesso',{
               position: 'top-right',
               autoClose: 2000,
@@ -83,7 +81,7 @@ function DeletarTema() {
                 Deseja deletar o Tema:
               </Typography>
               <Typography color="textSecondary">
-                {tema?.temas}
+                {tema?.tema}
               </Typography>
             </Box>
           </CardContent>

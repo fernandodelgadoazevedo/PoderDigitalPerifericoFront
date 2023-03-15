@@ -2,14 +2,17 @@ import { Grid, TextField, Typography, Button } from "@material-ui/core";
 import Box from "@mui/material/Box";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import UsuarioLogin from "../../models/UsuarioLogin";
 import "./Login.css";
 import { login } from "../../services/Services";
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/tokens/actions";
+import { toast } from 'react-toastify';
 
 function Login() {
   let navigate = useNavigate();
-  const [token, setToken] = useLocalStorage("token");
+  const [token, setToken] = useState('');
+  const dispatch = useDispatch();
   const [userLogin, setUserLogin] = useState<UsuarioLogin>({
     id: 0,
     nome: "",
@@ -27,20 +30,37 @@ function Login() {
   }
 
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault();
-    try {
-      await login("/usuarios/logar", userLogin, setToken);
-      alert("Usuário logado com sucesso");
-    } catch (error) {
-      alert("Usuário e/ou senha inválidos");
-    }
+    e.preventDefault()
+    try{
+      await login('/usuarios/logar', userLogin, setToken)
+      toast.success("Usuário logado com sucesso", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: 'colored',
+        progress: undefined
+    });        } catch(error) {
+        toast.error("Usuário e/ou senha inválidos", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: 'colored',
+            progress: undefined
+        });        }
   }
 
-  useEffect(() => {
-    if (token !== "") {
-      navigate("/home")
+  useEffect(()=>{
+    if(token != ''){
+        dispatch(addToken(token))
+        navigate('/home')
     }
-  }, [token]);
+}, [token])
 
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">

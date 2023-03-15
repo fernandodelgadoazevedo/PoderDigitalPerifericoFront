@@ -4,6 +4,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Usuario from "../../models/Usuario";
 import { cadastro } from "../../services/Services";
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
 
@@ -35,20 +36,44 @@ function CadastroUsuario() {
         [event.target.name]: event.target.value
       })
     }
-  
-    async function onSumit(event: ChangeEvent<HTMLFormElement>) {
+    async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
+      event.preventDefault()
       try {
-        event.preventDefault()
-        if(user.senha === confirmarSenha) {
-          await cadastro('/usuarios/cadastrar', user, setUserResult);
-          alert('Usuario cadastrado com sucesso')
-        } else {
-          alert('As senhas não conferem')
-        }
-      } catch (error) {
-        alert('Falha no cadastro, por favor, verifique os campos')
-      }
+      if(user.senha === confirmarSenha) {
+        await cadastro('/usuarios/cadastrar', user, setUserResult);
+        toast.success("Usuário cadastrado com sucesso", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: 'colored',
+          progress: undefined
+      });        } else {
+        toast.error("As senhas não conferem", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: 'colored',
+          progress: undefined
+      });        }
+    } catch (error) {
+      toast.error("Falha no cadastro, por favor, verifique os campos", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: 'colored',
+        progress: undefined
+    });
     }
+  }
   
     useEffect(() => {
       if(userResult.id !== 0) {
@@ -63,7 +88,7 @@ function CadastroUsuario() {
     <Grid item xs={6} className='fundoCadastro'></Grid>
     <Grid item xs={6}>
       <Box paddingX={12}>
-        <form onSubmit={onSumit}>
+        <form onSubmit={onSubmit}>
           <Typography variant='h3' align='center'>Cadastre-se</Typography>
           <TextField value={user.nome} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} label='Nome' id='nome' name='nome' variant='outlined' fullWidth margin='normal' />
           <TextField value={user.usuario} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} label='usuario' id='usuario' name='usuario' variant='outlined' fullWidth margin='normal' />
