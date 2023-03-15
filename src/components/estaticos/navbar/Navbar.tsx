@@ -28,7 +28,7 @@ function Navbar() {
   const pages = [
     {
       nome: 'posts',
-      link: '/posts'
+      link: '/postagens'
     },
     {
       nome: 'temas',
@@ -88,8 +88,6 @@ function Navbar() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/home"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -100,7 +98,9 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
+          <Link to='/home'>
             Poder Digital Periferico
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
