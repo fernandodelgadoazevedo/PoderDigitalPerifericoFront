@@ -14,47 +14,53 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'
-
-
-// const pages = ['Posts', 'Favoritos', 'Sobre o projeto'];
-const pages = [
-{
-  nome: 'posts',
-  link: '/posts'
-},
-{
-  nome: 'temas',
-  link: '/temas'
-},
-{
-  nome: 'cadastrar Temas',
-  link: '/formularioTema'
-},
-{
-  nome: 'home',
-  link: '/home'
-}
-]
-
-// const settings = ['Perfil', 'Conta', 'Dashboard', 'Sair'];
-const settings =[ 
-{
-nome: 'sair',
-link: '/login'
-},
-{
-  nome: 'perfil',
-  link: '/perfil'  
-},
-{
-  nome: 'teste',
-  link:  'https://youtube.com'
-}
-]
-
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 function Navbar() {
+  let navigate = useNavigate();
+  const token = useSelector<TokenState, TokenState['tokens']>(
+    (state) => state.tokens);
+
+  const dispacth = useDispatch();
+  // const pages = ['Posts', 'Favoritos', 'Sobre o projeto'];
+  const pages = [
+    {
+      nome: 'posts',
+      link: '/posts'
+    },
+    {
+      nome: 'temas',
+      link: '/temas'
+    },
+    {
+      nome: 'cadastrar Temas',
+      link: '/formularioTema'
+    },
+    {
+      nome: 'home',
+      link: '/home'
+    }
+  ]
+
+  // const settings = ['Perfil', 'Conta', 'Dashboard', 'Sair'];
+  const settings = [
+    {
+      nome: 'sair',
+      link: '/login'
+    },
+    {
+      nome: 'perfil',
+      link: '/perfil'
+    },
+    {
+      nome: 'teste',
+      link: 'https://youtube.com'
+    }
+  ]
+
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -72,13 +78,13 @@ function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  var navbarComponent;
 
-  return (
-    <AppBar className='navbar' position="static">
+  if (token !== '') {
+    navbarComponent = <AppBar className='navbar' position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          
           <Typography
             variant="h6"
             noWrap
@@ -128,8 +134,8 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.nome} onClick={handleCloseNavMenu}>
-                  <Link style={{textDecoration: "none",color:'white'}} to={page.link}>
-                  <Typography className='textLink' textAlign="center">{page.nome}</Typography>
+                  <Link style={{ textDecoration: "none", color: '#fff' }} to={page.link}>
+                    <Typography className='textLink' textAlign="center">{page.nome}</Typography>
                   </Link>
                 </MenuItem>
               ))}
@@ -151,17 +157,17 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-           PDP
+            PDP
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link style={{textDecoration: "none"}} to={page.link}>
-              <Button
-                key={page.nome}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}>
-                {page.nome}
-              </Button>
+              <Link style={{ textDecoration: "none" }} to={page.link}>
+                <Button
+                  key={page.nome}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}>
+                  {page.nome}
+                </Button>
               </Link>
             ))}
           </Box>
@@ -190,8 +196,8 @@ function Navbar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting.nome} onClick={handleCloseUserMenu}>
-                  <Link to={setting.link}>
-                  <Typography textAlign="center">{setting.nome}</Typography>
+                  <Link style={{ textDecoration: "none" }} to={setting.link}>
+                    <Typography textAlign="center">{setting.nome}</Typography>
                   </Link>
                 </MenuItem>
               ))}
@@ -200,6 +206,11 @@ function Navbar() {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  }
+    return (
+      <>
+        {navbarComponent}
+      </>
+    );
 }
-export default Navbar;
+  export default Navbar;
