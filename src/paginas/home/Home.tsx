@@ -35,25 +35,23 @@ function Home() {
 
     return (
         <>
-          <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
+          <Grid container direction="row" justifyContent="center" alignItems="center" >
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
                       
                     </Box>
                    
                 </Grid>
-                <Grid item xs={12} >
                 <Grid xs={12} className='postagens'>
                     <TabPostagem />
-                </Grid>
                 </Grid>
                 <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
                             <ModalPostagem />
                         </Box>
                         
-                        <Link className='links' to='/posts'>            
-                            <Button variant="contained" className='botao'>Ver Postagens</Button>
+                        <Link className='links' to='/postagens'>            
+                            <Button variant="outlined" className='botao'>Ver Postagens</Button>
                         </Link>
 
                     </Box>

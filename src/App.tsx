@@ -18,6 +18,7 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
+import Perfil from './paginas/perfil/Perfil';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <div style={{ minHeight: "100vh" }}>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/perfil" element={<Perfil />} />
 
           <Route path="/login" element={<Login />} />
 

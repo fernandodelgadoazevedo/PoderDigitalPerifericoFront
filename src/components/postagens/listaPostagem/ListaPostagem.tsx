@@ -52,14 +52,22 @@ function ListaPostagem() {
       {
         posts.map(post => (
           <Box m={2} >
-            <Card variant="outlined">
+            <Card className='card' variant="outlined">
               <CardContent>
                 <Typography color="textSecondary" gutterBottom>
                   Postagens
                 </Typography>
-                <Typography variant="h5" component="h2">
-                  {post.titulo}
-                </Typography>
+
+                  {post.titulo.includes('.mp4')? (
+                    <video className='video' controls>
+                          <source src={post.titulo} />
+                    </video>
+                  ) : 
+                  (
+                    <img src={post.titulo} alt="Imagem da postagem" />
+
+                  ) }
+
                 <Typography variant="body2" component="p">
                   {post.texto}
                 </Typography>

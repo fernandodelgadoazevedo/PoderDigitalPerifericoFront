@@ -57,7 +57,7 @@ function ListaTema() {
         <Card variant="outlined">
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Tema
+              Qbrada
             </Typography>
             <Typography variant="h5" component="h2">
             {tema.tema}

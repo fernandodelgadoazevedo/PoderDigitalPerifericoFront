@@ -6,13 +6,9 @@
     size: 100vw;
 }
 
-body{
-    background-color:rgb(24, 61, 97) ;
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
+
  .botao{
-    border-color: white !important;
+    border-color: rgb(71, 50, 50) !important;
     background-color: white !important;
 }
  .links{

@@ -36,11 +36,7 @@ function Footer() {
                         <Box paddingTop={1}>
                             <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2023 Copyright:</Typography>
                         </Box>
-                        <Box>
-                            <a target="_blank" href="https://PoderDigitalPeriferico.com">
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">PoderPeriferico.com</Typography>
-                            </a>
-                        </Box>
+                      
                     </Box>
                 </Grid>
             </Grid>

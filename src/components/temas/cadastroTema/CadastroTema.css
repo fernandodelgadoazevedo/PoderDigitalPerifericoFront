@@ -1,3 +1,15 @@
 .topo{
     margin-top: 20px;
+   
+}
+
+.titulo{
+    font-weight: bold !important;
+    color: #000 !important;
+}
+
+.caixa-cadastro{
+    background-image: url('https://img.freepik.com/fotos-premium/favela-da-rocinha-no-rio-de-janeiro-brasil_63139-1977.jpg?w=740');
+    background-repeat: no-repeat;
+    background-size: 100vw;
 }

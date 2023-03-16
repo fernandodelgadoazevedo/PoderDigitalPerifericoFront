@@ -32,6 +32,7 @@ function Navbar() {
     },
     {
       nome: 'temas',
+
       link: '/temas'
     },
     {
@@ -98,7 +99,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-          <Link to='/home'>
+          <Link className='textLink' to='/home'>
             Poder Digital Periferico
             </Link>
           </Typography>
