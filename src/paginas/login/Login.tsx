@@ -133,7 +133,35 @@ function Login() {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-      ></Grid>
+      >
+<Grid container justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
+      
+      <Grid justifyContent="flex-end" alignItems='center' xs={6}>
+                <Box paddingX={20}className="componentLogin">
+                    <form onSubmit={onSubmit}>
+                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='entrar'>Entrar</Typography>
+
+                        <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='usuário' variant='filled' name='usuario' margin='normal' fullWidth />
+
+                        <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updateModel(e)} id='senha' label='senha' variant='filled' name='senha' margin='normal' type='password'fullWidth />
+
+                        <Box marginTop={2} textAlign='center'>
+                                <Button className='buttonLogin' type='submit' variant='contained' color='primary'>
+                                    Logar
+                                </Button>
+                        </Box>
+                    </form>
+                    <Box display='flex' justifyContent='center' marginTop={2}>
+                        <Box marginRight={1}>
+                            <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
+                        </Box>
+                        <Link to='/cadastrar'>
+                            <Typography variant='subtitle1' gutterBottom align='center' className='textos1'>Cadastre-se</Typography>
+                        </Link>
+                            
+                    </Box>
+                </Box>
+            </Grid>
     </Grid>
   );
 }

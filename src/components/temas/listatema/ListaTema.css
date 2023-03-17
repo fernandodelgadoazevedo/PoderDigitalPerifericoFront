@@ -1,0 +1,19 @@
+.fundo-listaTemas{
+    background-image: url('https://ik.imagekit.io/wwd7wv4ro/PDP_Recortado.png?updatedAt=1679054395187');
+
+    background-repeat: no-repeat;
+    background-size: 50vw;
+    background-position-x: center;
+    width: 100%;
+    padding: 20px 20px;
+ }
+
+.fundo-fundo{
+    background-color: black;
+}
+
+
+ .cards{
+    background-color: rgba(255, 255, 255, 0.685) !important;
+   
+ }

@@ -35,7 +35,7 @@ function Home() {
 
     return (
         <>
-          <Grid className='caixa-home' container direction="row" justifyContent="center" alignItems="center" >
+          <Grid container direction="row" justifyContent="center" alignItems="center" >
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
                       

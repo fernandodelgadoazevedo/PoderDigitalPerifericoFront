@@ -50,11 +50,12 @@ function ListaTema() {
   }, [temas.length])
 
   return (
-    <>
+  <div className='fundo-fundo'>
+  <div className='fundo-listaTemas'>
     {
       temas.map(tema =>(
       <Box m={2} >
-        <Card variant="outlined">
+        <Card className='cards' variant="outlined">
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               Qbrada
@@ -86,7 +87,8 @@ function ListaTema() {
       </Box>
       ))
       }
-    </>
+    </div>
+    </div>
   );
 }
 
