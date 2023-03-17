@@ -13,7 +13,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,38 +26,35 @@ function Navbar() {
   // const pages = ['Posts', 'Favoritos', 'Sobre o projeto'];
   const pages = [
     {
-      nome: 'posts',
-      link: '/postagens'
+      nome: 'home',
+      link: '/home'
     },
     {
-      nome: 'temas',
-
+      nome: 'Comunidades',
       link: '/temas'
     },
     {
-      nome: 'cadastrar Temas',
+      nome: 'cadastre sua comunidade',
       link: '/formularioTema'
     },
     {
-      nome: 'home',
-      link: '/home'
+      nome: 'sobre o projeto',
+      link: '/sobreoprojeto'
     }
+    
   ]
 
   // const settings = ['Perfil', 'Conta', 'Dashboard', 'Sair'];
   const settings = [
     {
-      nome: 'sair',
-      link: '/login'
-    },
-    {
       nome: 'perfil',
       link: '/perfil'
     },
     {
-      nome: 'teste',
-      link: 'https://youtube.com'
-    }
+      nome: 'sair',
+      link: '/login'
+    },
+    
   ]
 
 
@@ -85,7 +81,9 @@ function Navbar() {
     navbarComponent = <AppBar className='navbar' position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+       <div>
+        <img src="https://ik.imagekit.io/wwd7wv4ro/PDP_Recortado.png?updatedAt=1679054395187" alt="" className='logo' />
+        </div>
           <Typography
             variant="h6"
             noWrap

@@ -4,5 +4,11 @@
     font-weight: bold;
 }
 .navbar{
-    background-color: rgb(122, 96, 10) !important;
+    background-color: rgb(230, 174, 122) !important;
+}
+.logo{
+    width: 40px;
+    margin-left: -20px; 
+    padding-left: 20px;
+
 }

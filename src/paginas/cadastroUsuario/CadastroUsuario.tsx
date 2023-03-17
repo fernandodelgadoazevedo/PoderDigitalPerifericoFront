@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Usuario from "../../models/Usuario";
 import { cadastro } from "../../services/Services";
 import { toast } from 'react-toastify';
-
+import   './CadastroUsuario.css'
 function CadastroUsuario() {
 
     let navigate = useNavigate()
@@ -84,25 +84,43 @@ function CadastroUsuario() {
 
 
     return(
-    <Grid container alignItems='center'>
-    <Grid item xs={6} className='fundoCadastro'></Grid>
-    <Grid item xs={6}>
-      <Box paddingX={12}>
+      <Grid container>
+      <Grid container item
+        xs={12}
+        style={{
+          backgroundImage: `url(https://images.303magazine.com/uploads/2019/08/GettyImages-510083766.jpg)`,
+
+          // https://img.freepik.com/fotos-gratis/bela-vista-de-uma-pequena-cidade-nas-montanhas-durante-o-por-do-sol-no-brasil_181624-39388.jpg?w=1380&t=st=1678927973~exp=1678928573~hmac=9d10b84295ac61de991523135d7fdb7e7004d250801a39d01d73fe8065dc2a09
+
+          backgroundRepeat: "no-repeat",
+          width: "100vh",
+          minHeight: "100vh",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+<Grid container justifyContent="center" alignItems="center" >
+      
+      <Grid justifyContent="flex-end" alignItems='center' xs={6}>
+                <Box paddingX={20} className='fundo-transparent' >
+       <div >
         <form onSubmit={onSubmit}>
-          <Typography variant='h3' align='center'>Cadastre-se</Typography>
+          <img className='logo-cadastro' src="https://ik.imagekit.io/wwd7wv4ro/PDP_full_branco.png?updatedAt=1679053313611" alt="" />
           <TextField value={user.nome} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} label='Nome' id='nome' name='nome' variant='outlined' fullWidth margin='normal' />
-          <TextField value={user.usuario} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} label='usuario' id='usuario' name='usuario' variant='outlined' fullWidth margin='normal' />
+          <TextField value={user.usuario} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} label='E-mail' id='usuario' name='usuario' variant='outlined' fullWidth margin='normal' />
           <TextField value={user.foto} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} label='foto' id='foto' name='foto' variant='outlined' fullWidth margin='normal' />
           <TextField value={user.senha} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} type='password' label='senha' id='senha' name='senha' variant='outlined' fullWidth margin='normal' />
           <TextField value={confirmarSenha} onChange={(event: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(event)} type='password' label='confirmar senha' id='confirmarsenha' name='confirmarsenha' variant='outlined' fullWidth margin='normal' />
           <Grid container justifyContent='space-around'>
-            <Link to='/login'><Button variant='contained' color='secondary'>Cancelar</Button></Link>
+            <Link className='text-link' to='/login'><Button  variant='contained' color='secondary'>Cancelar</Button></Link>
             <Button type='submit' variant='contained' color='primary'>Cadastrar</Button>
           </Grid>
         </form>
-      </Box>
+        </div>
+                </Box>
+            </Grid>
     </Grid>
-  </Grid>
+      </Grid> </Grid>
     )
 
 }
