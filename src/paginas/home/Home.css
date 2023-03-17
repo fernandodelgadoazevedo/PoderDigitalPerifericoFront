@@ -14,3 +14,12 @@
  .links{
     text-decoration: none;
  }
+.caixa-home{
+ background-image: url('https://img.freepik.com/fotos-premium/favela-da-rocinha-no-rio-de-janeiro-brasil_63139-1977.jpg?w=740') !important;
+ background-repeat: no-repeat;
+ background-position: absolute;
+ background-size: 100vw;
+}
+.postagens{
+    overflow: scroll;
+}

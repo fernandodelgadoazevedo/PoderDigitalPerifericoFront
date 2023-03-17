@@ -18,7 +18,7 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
-import Perfil from './paginas/perfil/Perfil';
+import Perfil from './components/perfil/Perfil';
 
 
 function App() {

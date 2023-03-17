@@ -64,7 +64,7 @@ function Login() {
 
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
-      <Grid alignItems="center" xs={6}>
+      <Grid alignItems="center" xs={12}>
         <Box paddingX={20}>
           <form onSubmit={onSubmit}>
             <Typography
